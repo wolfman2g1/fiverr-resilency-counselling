@@ -1,0 +1,29 @@
+baseURL = "https://resiliency-counseling.netlify.app"
+languageCode = "en-EN"
+defaultContentLanguage = "en"
+title = "Resiliency Counseling Group LLC"
+summaryLength = 30
+RelativeURLs = false
+CanonifyURLs = true
+enableRobotsTXT = true
+enableEmoji = true
+paginate = 4
+paginatePath = "page"
+enableGitInfo = true
+pygmentsCodefences = true 
+pygmentsUseClasses = true
+theme = "resilency-counselling"
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[params]
+  author = "Resiliency Counseling Group LLC"
+  site_name = "Resiliency Counseling Group LLC"
+  description = "Resiliency Counseling Group LLC description"
+  locale = "en-US"
+  type = "website"
+
+  email = "example@gmail.com"
+  phone = "+120-129-874-81"
