@@ -1,32 +1,57 @@
 {{ define "main" }}
 
-  <main class="max-w-screen-xl mx-auto text-gray px-5 pt-32 w-full">
-    {{ with .Resources.GetMatch "thumbnail.*" }}
-      <div class="w-full aspect-[1274/640] rounded-lg overflow-hidden">
-        <img class="w-full object-cover" src="{{ .RelPermalink }}" alt="thumbnail">
-      </div>
-    {{ end }}
 
-    <article class="prose prose-headings:font-lato prose-a:text-primary prose-a:no-underline hover:prose-a:underline max-w-screen-lg mx-auto font-roboto">
+<section class="mt-[104px] md:mt-[136px] relative aspect-video md:aspect-[10/4] bg-cover bg-center">
+  <img class="w-full h-full object-cover" src="{{ .Params.Thumbnail }}" alt="thumbnail">
+</section>
 
-      <div class="not-prose pt-6 md:pt-12 pb-6 md:pb-10 border-b border-primary-gray mb-8 md:mb-12">
-        <h1 class="font-lato text-2xl md:text-3xl lg:text-4xl font-bold text-primary-dark-gray">
-          {{ .Title }}
-        </h1>
-        <div class="font-roboto flex items-center gap-4 mt-3 md:mt-5"> 
-          <div class="flex items-center gap-2 font-medium text-primary text-sm md:text-base">
-            <img src="/assets/images/date.svg" alt='post date - {{ dateFormat "02 Jan, 2006" .Date.Local }}'>
-            {{ dateFormat "02 Jan, 2006" .Date.Local }}
+<main class="max-w-screen-xl mx-auto text-gray px-5 w-full mb-52 md:mb-72">
+  <article class="prose prose-headings:font-lato prose-a:text-primary prose-a:no-underline hover:prose-a:underline max-w-screen-lg mx-auto font-roboto">
+
+    <div class="not-prose pt-6 md:pt-12 pb-6 md:pb-10 border-b border-primary-gray mb-8 md:mb-12">
+      <h1 class="font-lato text-3xl lg:text-4xl text-primary-dark-gray">
+        {{ .Title }}
+      </h1>
+      <div class="flex flex-wrap justify-between gap-x-10">
+        <div class="font-roboto flex items-center gap-4 mt-3 md:mt-5 text-base md:text-lg mb-3 md:mb-0"> 
+          <div class="font-medium">
+            By <span class="text-primary-purple">{{ .Params.Author }}</span>
           </div>
-          <a href="/categories/{{ urlize .Params.Categories }}" class="flex items-center gap-2 font-medium text-primary text-sm md:text-base">
-            <img src="/assets/images/folder.svg" alt="category - {{ urlize .Params.Categories }}">
-            {{ .Params.Categories }}
-          </a>
+          <div class="w-1 md:w-2 h-1 md:h-2 rounded-full bg-primary-gray"></div>
+          <div class="flex items-center gap-2 font-medium text-primary">
+            {{ dateFormat "02 January 2006" .Date.Local }}
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-2 text-base md:text-lg font-medium text-primary-gray">
+          <div class="md:pr-2">Share:</div>
+          <button 
+            class="hover:opacity-80 transition p-1 md:p-2" 
+            data-sharer="facebook" 
+            data-title="" 
+            data-hashtags="" 
+            data-url="{{ .Permalink }}"
+          >
+            <img class="invert" src="/assets/images/facebook.svg" alt="facebook">
+          </button>
+          <button 
+            class="hover:opacity-80 transition p-1 md:p-2" 
+            data-sharer="twitter" 
+            data-title="" 
+            data-hashtags="" 
+            data-url="{{ .Permalink }}"
+          >
+            <img class="invert" src="/assets/images/twitter.svg" alt="twitter">
+          </button>
         </div>
       </div>
+    </div>
 
-      {{ .Content | safeHTML }}
-    </article>
-  </main>
+    {{ .Content | safeHTML }}
+  </article>
+</main>
 
 {{end}}
+
+{{ define "scripts" }}
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+{{ end }}

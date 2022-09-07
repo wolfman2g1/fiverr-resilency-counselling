@@ -7,5 +7,5 @@ toc: true
 keyword: []
 thumbnail: ""
 tags: []
-categories: []
+categories: ""
 ---

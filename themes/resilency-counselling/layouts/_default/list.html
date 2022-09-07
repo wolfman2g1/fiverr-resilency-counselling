@@ -1,21 +1,40 @@
 {{ define "main" }}
-<main class="pt-32 max-w-screen-xl px-5 mx-auto space-y-52">
-  <section class="mt-10">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
-      {{ range .Pages }}
-        {{if not (in .Params.IsIndex true)}}
-          {{ partial "components/post-card.html" (dict 
-            "resources" .Resources
-            "date" .Date.Local
-            "params" .Params
-            "summary" .Summary
-            "url" .RelPermalink
-          )}}
-        {{ end}}
-      {{end}}
-    </div>
-  
-  </section>
-</main>
+<section class="mt-[104px] md:mt-[136px] relative aspect-video md:aspect-[10/4] bg-cover bg-center" style="background-image: url({{.Params.Bg_image}});">
+  <div class="bg-primary-dark-gray/30 w-full h-full grid place-items-center px-5">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl text-white text-center">
+      {{ .Params.Title }}
+    </h1>
+  </div>
+</section>
+
+<section class="mt-20 max-w-screen-xl px-5 mx-auto mb-64">
+  <h2 class="text-3xl md:text-4xl lg:text-5xl mb-10">New Posts</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7 lg:gap-10">
+    {{ $paginator := .Paginate (where .Pages "Type" "blog") }}
+    {{ range $paginator.Pages }}
+      <a href="{{ .Permalink }}" class="block hover:opacity-80 transition">
+        <div class="aspect-[425/350] overflow-hidden">
+          <img class="w-full h-full object-cover" src="{{ .Params.Thumbnail }}" alt="{{ .Title }}">
+        </div>
+        <div class="p-5 bg-primary-yellow font-medium">
+          <time class="block mb-1">
+            {{ .PublishDate.Format "2 January 2006" }}
+          </time>
+          <h3 class="mb-5 text-2xl line-clamp-1">
+            {{ .Title }}
+          </h3>
+          <p class="line-clamp-3">
+            {{ or .Params.Description .Summary }}
+          </p>
+        </div>
+      </a>
+    {{end}}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+
+  {{/*  {{ partial "pagination.html" (dict "paginator" $paginator)}}  */}}
+</section>
 {{ end }}
+

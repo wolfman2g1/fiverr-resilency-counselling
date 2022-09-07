@@ -1,6 +1,111 @@
 {{ define "main" }}
   
-  
+  <main class="mt-[104px] md:mt-[136px] mb-32 md:mb-52 lg:mb-72">
+
+    {{ range (where .Site.Pages "Type" "home")}}
+
+    {{ if(eq .Params.Section "hero") }}
+      <section class="relative aspect-video md:aspect-[10/4] bg-cover bg-center" style="background-image: url({{.Params.Bg_image}});">
+        <div class="bg-primary-dark-gray/30 w-full h-full grid place-items-center px-5">
+          <h1 class="text-3xl md:text-5xl lg:text-6xl text-white text-center">
+            {{ .Params.Title }}
+          </h1>
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if(eq .Params.Section 2) }}
+      <section class="main-container text-center py-32 md:py-48 lg:py-72 flex flex-col items-center justify-center">
+        <h2 class="text-3xl md:text-5xl lg:text-6xtext-6xl mb-5">
+          {{ .Params.Title }}
+        </h2>
+        <p class="max-w-screen-md mx-auto text-center text-lg md:text-xl lg:text-2xl">
+          {{ .Params.Description }}
+        </p>
+      </section>
+    {{ end}}
+
+    {{ if(eq .Params.Section 3) }}
+      <section class="text-center flex items-center justify-center bg-primary-green py-32">
+        <div class="sec-container flex flex-col lg:flex-row h-full">
+          <img class="object-cover" src="{{ .Params.Bg_image }}" alt="{{ .Params.Title }}">
+          <div class="bg-primary-yellow flex items-center justify-center py-6">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl">
+              {{ .Params.Title }}
+            </h2>
+          </div>
+        </div>
+      </section>
+    {{ end}}
+
+    {{ if(eq .Params.Section 4) }}
+      <section class="relative py-10 px-5 flex items-center justify-center aspect-[10/4] bg-cover bg-center" style="background-image: url({{ .Params.Bg_image }});">
+        <div class="bg-primary-purple max-w-screen-lg mx-auto w-full py-12 ">
+          <h2 class="text-2xl md:text-4xl lg:text-6x text-white text-center">
+            {{ .Params.Title }}
+          </h2>
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if (eq .Params.Section 5) }}
+      <section class="bg-primary-dark-gray py-32">
+        <div class="main-container grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-12 md:gap-y-16">
+          {{ range .Params.List }}
+            <div>
+              <img class="aspect-[808/560]" src="{{ .image }}" alt="{{ .title }}">
+              <h3 class="text-2xl md:text-3xl lg:text-5xl text-white mt-3 md:mt-8">
+                {{ .title }}
+              </h3>
+            </div>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if (eq .Params.Section 6) }}
+      <form action="{{ .Params.Form_action }}" method="post" class="sec-container min-h-screen grid grid-cols-1 md:grid-cols-2 gap-x-20 py-20 md:py-48">
+        <div class="w-full h-full order-3 md:order-1 mt-8 md:mt-0">
+          <img class="w-full h-full object-cover rounded-lg" src="{{ .Params.Map_image }}" alt="map">
+        </div>
+        <div class="order-2 md:order-2">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl mb-8 md:mb-12">
+            {{ .Params.Title }}
+          </h2>
+          <div class="space-y-5 -mb-2">
+            <input type="text" name="name" placeholder="Name" class="form-input">
+            <input type="text" name="address" placeholder="Address" class="form-input">
+            <div class="grid grid-cols-2 gap-5">
+              <input type="email" name="email" placeholder="Email" class="form-input">
+              <input type="tel" name="phone" placeholder="Phone" class="form-input">
+            </div>
+            <input type="text" name="subject" placeholder="Subject" class="form-input">
+            <textarea name="message" class="form-input" cols="30" rows="10" placeholder="Type your message here..."></textarea>
+          </div>
+        </div>
+        <div class="flex justify-end mt-5 w-full order-2 md:col-span-2">
+          <button type="submit" class="px-8 py-3 rounded-lg text-white bg-primary-blue font-medium">
+            Submit
+          </button>
+        </div>
+      </form>
+    {{ end }}
+
+    {{ end }}
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+  </main>
 
 {{end}}
 

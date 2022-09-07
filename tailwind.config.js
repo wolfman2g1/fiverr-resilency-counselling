@@ -18,10 +18,18 @@ module.exports = {
           yellow: '#FFF136',
           light: '#F5F7FB',
           white: '#FFFFFF',
-          black: '#212427',
+          "dark-gray": '#212427',
           gray: '#434343'
         },
       },
+      fontSize: {
+        '4xl': '2.375rem',
+        '6xl': '4rem'
+      },
+      fontFamily: {
+        'times-new-roman': ['Times New Roman', 'serif'],
+        'roboto': ['Roboto', 'sans-serif']
+      }
     },
   },
   plugins: [

@@ -1,0 +1,68 @@
+{{ define "main" }}
+<section class="mt-[104px] md:mt-[136px] relative aspect-video md:aspect-[10/4] bg-cover bg-center" style="background-image: url({{.Params.Bg_image}});">
+  <div class="bg-primary-dark-gray/30 w-full h-full grid place-items-center px-5">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl text-white text-center">
+      {{ .Params.Title }}
+    </h1>
+  </div>
+</section>
+
+<section class="bg-primary-dark-gray py-32 pb-52 md:pb-96">
+  <div class="relative max-w-screen-2xl mx-auto px-5 md:px-20 lg:px-32">
+    <div class="swiper swiper-staff">
+      <div class="swiper-wrapper">
+        {{ range .Params.Staffs }}
+          <div class="swiper-slide">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-white">
+              <div>
+                <img src="{{ .photo }}" alt="">
+              </div>
+              <div x-data="{open: false}">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl mb-5">{{ .name }}</h2>
+                <p 
+                  @click="open = !open" 
+                  class="text-base md:text-lg lg:text-xl font-medium md:pr-10 line-clamp-5 md:line-clamp-[15] xl:line-clamp-none cursor-pointer"
+                  :class="open && '!line-clamp-none'"
+                >
+                  {{ .description }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  
+    <div class="swiper-staff-prev absolute -bottom-24 md:top-1/2 md:-translate-y-1/2 right-24 md:left-0 h-16 md:h-28 w-12 md:w-20 flex items-center justify-center hover:opacity-60 transition cursor-pointer z-30">
+      <svg class="w-6 md:w-10" viewBox="0 0 26 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.935 37.03L9.905 21L25.935 4.935L21 0L0 21L21 42L25.935 37.03Z" fill="#F5F7FB"/>
+      </svg>
+    </div>
+    <div class="swiper-staff-next absolute -bottom-24 md:top-1/2 md:-translate-y-1/2 right-8 md:right-0 h-16 md:h-28 w-12 md:w-20 flex items-center justify-center hover:opacity-60 transition cursor-pointer z-30">
+      <svg class="w-6 md:w-10" viewBox="0 0 26 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.0650005 37.03L16.095 21L0.0650005 4.935L5 0L26 21L5 42L0.0650005 37.03Z" fill="#F5F7FB"/>
+      </svg>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-staff', {
+      loop: true,
+      spaceBetween: 20,
+      
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      navigation: {
+        nextEl: '.swiper-staff-next',
+        prevEl: '.swiper-staff-prev',
+      },
+    });
+  </script>
+{{ end }}

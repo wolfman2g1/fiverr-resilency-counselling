@@ -1,0 +1,68 @@
+{{ define "main" }}
+<section class="relative aspect-video md:aspect-[10/4] bg-cover bg-center mt-[104px] md:mt-[136px]" style="background-image: url({{.Params.Bg_image}});">
+  <div class="bg-primary-dark-gray/30 w-full h-full grid place-items-center px-5">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl text-white text-center">
+      {{ .Params.Title }}
+    </h1>
+  </div>
+</section>
+
+
+<section class="sec-container py-20 md:py-40 space-y-20">
+  {{ range .Params.ServiceRates }}
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="lg:h-[480px] aspect-[4/3]">
+        <img class="w-full h-full object-cover" src="{{ .image }}" alt="{{ .name }}">
+      </div>
+      <div class="bg-primary-yellow flex flex-col justify-center items-center gap-4 md:gap-9 py-6 md:py-0  text-center">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl">{{ .name }}</h2>
+        <h3 class="text-2xl md:text-3xl lg:text-4xl">{{ .duration }}</h3>
+        <h3 class="text-2xl md:text-3xl lg:text-4xl">{{ .price }}</h3>
+        <a href="{{ .contact_us_url }}" class="mt-5 block text-white bg-primary-purple px-8 py-4 hover:opacity-90 transition">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  {{ end }}
+</section>
+
+<section class="max-w-screen-lg mx-auto py-20 md:py-40 px-5">
+  <div x-data="{open: true}" class="w-full">
+    <div class="flex items-start justify-between mb-5">
+      <h1 class="text-2xl md:text-3xl lg:text-5xl">Payment</h1>
+      <button @click="open = !open" class="bg-primary-yellow border-2 border-black h-7 md:h-10 w-7 md:w-10 p-1 flex items-center justify-center mt-1.5 md:mt-3" >
+        <svg class="transition" :class="!open && 'rotate-180'" width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.64375 13.9125L11.25 5.30625L19.8563 13.9125L22.5 11.25L11.25 0L0 11.25L2.64375 13.9125Z" fill="black"/>
+        </svg>
+      </button>
+    </div>
+    <div x-show="open" x-transition.opacity class="text-lg md:text-xl font-medium pt-5 space-y-8">
+      {{ range .Params.Payments }}
+        <div x-data="{open: false}" class="w-full">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl lg:text-4xl w-[95%]">{{ .name }}</h2>
+            <button @click="open = !open" class="bg-primary-yellow border-2 border-black h-7 md:h-10 w-7 md:w-10 p-1 flex items-center justify-center mt-1.5 md:mt-3" >
+              <svg class="transition" :class="!open && 'rotate-180'" width="23" height="14" viewBox="0 0 23 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.64375 13.9125L11.25 5.30625L19.8563 13.9125L22.5 11.25L11.25 0L0 11.25L2.64375 13.9125Z" fill="black"/>
+              </svg>
+            </button>
+          </div>
+          <div x-show="open" x-transition.opacity class="text-base md:text-lg lg:text-xl font-medium pt-5 pb-10 md:pb-20 pl-1">
+            {{ if .list }}
+              <ul class="mb-5">
+                {{ range .list  }}
+                  <li class="font-times-new-roman flex items-center gap-3 text-lg md:text-xl lg:text-2xl font-bold"> 
+                    <div class="w-3 h-3 bg-primary-green"></div> {{ . }}
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end}}
+            <p class="text-base md:text-lg lg:text-xl">{{ .description | safeHTML }}</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

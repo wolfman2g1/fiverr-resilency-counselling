@@ -3,11 +3,15 @@
   
   {{- partial "head.html" . -}}
 
-<body class="font-roboto bg-light overflow-x-hidden">
+<body class="font-roboto bg-light overflow-x-hidden ">
 
   {{- partial "header.html" . -}}
-  {{- block "main" . }}{{- end }}
-  {{- partial "footer.html" . -}} 
+  <div class="flex flex-col justify-between w-full min-h-screen">
+    <div class="w-full">
+      {{- block "main" . }}{{- end }}
+    </div>
+    {{- partial "footer.html" . -}} 
+  </div>
 
   {{- block "scripts" . }}{{- end }}
 </body>
