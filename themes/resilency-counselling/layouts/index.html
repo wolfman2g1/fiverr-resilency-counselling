@@ -28,8 +28,10 @@
     {{ if(eq .Params.Section 3) }}
       <section class="text-center flex items-center justify-center bg-primary-green py-32">
         <div class="sec-container flex flex-col lg:flex-row h-full">
-          <img class="object-cover" src="{{ .Params.Bg_image }}" alt="{{ .Params.Title }}">
-          <div class="bg-primary-yellow flex items-center justify-center py-6">
+          <div class="aspect-[624/461] w-1/2">
+            <img class="w-full h-full object-cover" src="{{ .Params.Bg_image }}" alt="{{ .Params.Title }}">
+          </div>
+          <div class="w-1/2 bg-primary-yellow flex items-center justify-center py-6">
             <h2 class="text-2xl md:text-4xl lg:text-5xl">
               {{ .Params.Title }}
             </h2>
@@ -53,7 +55,7 @@
         <div class="main-container grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-12 md:gap-y-16">
           {{ range .Params.List }}
             <div>
-              <img class="aspect-[808/560]" src="{{ .image }}" alt="{{ .title }}">
+              <img class="aspect-[808/560] object-cover" src="{{ .image }}" alt="{{ .title }}">
               <h3 class="text-2xl md:text-3xl lg:text-5xl text-white mt-3 md:mt-8">
                 {{ .title }}
               </h3>
@@ -92,18 +94,6 @@
     {{ end }}
 
     {{ end }}
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
 
   </main>
 

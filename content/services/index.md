@@ -1,19 +1,19 @@
 ---
 title: Telehealth Services We Offer
-bg_image: /assets/images/services.png
+bg_image: /assets/images/services.webp
 layout: services
 
 services:
   - name: Individual Counseling
-    image: /assets/images/individual-counseling.png
+    image: /assets/images/individual-counseling.webp
     description: Individual psychotherapy focus on you and your goals. Dr. Jones pushes you beyond your comfort zone to face the underlying stuff that keeps holding you back.
 
   - name: Children's Counseling
-    image: /assets/images/children's-counseling.png
+    image: /assets/images/children's-counseling.webp
     description: Raising children can be beyond challenging. Whether it be depression, school problems, defiance, self-esteem, or blended family issues, a child having a counselor’s guidance in a safe environment can be the difference in helping them figure things out.
 
   - name: Parent Counseling and Education
-    image: /assets/images/parent-counseling-and-education.png
+    image: /assets/images/parent-counseling-and-education.webp
     description: Effectively helping children, adolescents and their parents most often require a keen understanding of the family system. I can work to identify how each member of the family contributes to the problems presented and works to efficiently address hurting relationships and dysfunctional habits. I will frequently assist with discipline strategies and instruct parents on behavior modification techniques
 
 ages:

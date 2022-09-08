@@ -1,4 +1,4 @@
 ---
 title: Blog
-bg_image: /assets/images/blog.png
+bg_image: /assets/images/blog.webp
 ---

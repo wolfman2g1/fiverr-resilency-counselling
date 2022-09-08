@@ -1420,6 +1420,10 @@ video {
   aspect-ratio: 16 / 9;
 }
 
+.aspect-\[10\/8\] {
+  aspect-ratio: 10/8;
+}
+
 .aspect-\[10\/4\] {
   aspect-ratio: 10/4;
 }
@@ -1434,6 +1438,18 @@ video {
 
 .aspect-\[425\/350\] {
   aspect-ratio: 425/350;
+}
+
+.aspect-\[624\/461\] {
+  aspect-ratio: 624/461;
+}
+
+.aspect-\[808\/300\] {
+  aspect-ratio: 808/300;
+}
+
+.aspect-\[637\/690\] {
+  aspect-ratio: 637/690;
 }
 
 .h-full {
@@ -1496,6 +1512,10 @@ video {
 
 .w-1 {
   width: 0.25rem;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .max-w-screen-md {
@@ -2161,6 +2181,10 @@ h1, h2, h3, h4, h6 {
     margin-top: 180px;
   }
 
+  .md\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
   .md\:mt-5 {
     margin-top: 1.25rem;
   }
@@ -2427,6 +2451,11 @@ h1, h2, h3, h4, h6 {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .even\:lg\:flex-row-reverse:nth-child(even) {

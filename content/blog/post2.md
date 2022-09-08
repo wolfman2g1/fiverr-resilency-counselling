@@ -6,7 +6,7 @@ date: 2022-09-07T09:31:47+07:00
 draft: false
 toc: true
 keyword: []
-thumbnail: /assets/images/meet-our-staff.png
+thumbnail: /assets/images/meet-our-staff.webp
 tags: []
 categories: ""
 ---

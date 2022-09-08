@@ -1,6 +1,6 @@
 {{ define "main" }}
   <section class="mt-[104px] md:mt-[136px] max-w-screen-md mx-auto px-5 mb-52 md:mb-72">
-    {{ with .Resources.GetMatch "company-logo.png" }}
+    {{ with .Resources.GetMatch "company-logo.webp" }}
       <img class="mb-6" src="{{ .RelPermalink }}" alt="{{ .Params.Title }}">
     {{ end }}
     <div x-data="{open: true}" class="w-full">

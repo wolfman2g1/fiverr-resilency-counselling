@@ -1,29 +1,29 @@
 ---
 title: Rate & Insurance
-bg_image: /assets/images/insurance.png
+bg_image: /assets/images/insurance.webp
 layout: insurance
 
 serviceRates:
   - name: Individual Counseling
-    image: /assets/images/individual-counseling.png
+    image: /assets/images/individual-counseling.webp
     duration: 1hr
     price: $100
     contact_us_url: '#'
 
   - name: Parenting Skills Training
-    image: /assets/images/children's-counseling.png
+    image: /assets/images/parenting-skill-training.webp
     duration: 1hr
     price: $95.00
     contact_us_url: '#'
 
   - name: Children Counseling
-    image: /assets/images/parent-counseling-and-education.png
+    image: /assets/images/children's-counseling.webp
     duration: 1hr
     price: $100
     contact_us_url: '#'
 
   - name: Parent Counseling and Education
-    image: /assets/images/parent-counseling-and-education.png
+    image: /assets/images/parent-counseling-and-education.webp
     duration: 1hr
     price: $100
     contact_us_url: '#'
