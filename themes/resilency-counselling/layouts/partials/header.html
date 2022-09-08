@@ -38,7 +38,7 @@
         <a href="/">
           <img class="w-16 md:w-auto" src="/assets/images/company-logo.webp" alt="company logo">
         </a>
-        <button @click="openMenu = !openMenu" class="block md:hidden">
+        <button @click="openMenu = !openMenu" class="block md:hidden" aria-label="menu">
           <svg x-show="!openMenu" width="32" height="32" viewBox="0 0 20 20"><path fill="currentColor" d="M3 11h14V9H3v2zm0 5h14v-2H3v2zM3 4v2h14V4H3z"/></svg>
           <svg x-cloak x-show="openMenu" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6Z"/></svg>
         </button>
@@ -63,6 +63,21 @@
         <a href="/services" class="hover:opacity-80 whitespace-nowrap">Services</a>
         <a href="/insurance" class="hover:opacity-80 whitespace-nowrap">Insurance</a>
         <a href="/blog" class="hover:opacity-80 whitespace-nowrap">Blog</a>
+        
+        <div class="flex items-center justify-center gap-5 mt-3">
+          <a href="#" class="hover:opacity-80 transition">
+            <img class="invert" src="/assets/images/facebook.svg" alt="facebook">
+          </a>
+          <a href="#" class="hover:opacity-80 transition">
+            <img class="invert" src="/assets/images/instagram.svg" alt="instagram">
+          </a>
+          <a href="#" class="hover:opacity-80 transition">
+            <img class="invert" src="/assets/images/twitter.svg" alt="twitter">
+          </a>
+          <a href="#" class="hover:opacity-80 transition">
+            <img class="invert" src="/assets/images/youtube.svg" alt="youtube">
+          </a>
+        </div>
       </nav>
     </div>
   </div>
