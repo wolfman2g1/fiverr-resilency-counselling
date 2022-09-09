@@ -66,7 +66,8 @@
     {{ end }}
 
     {{ if (eq .Params.Section 6) }}
-      <form action="{{ .Params.Form_action }}" method="post" class="sec-container min-h-screen grid grid-cols-1 md:grid-cols-2 gap-x-20 py-20 md:py-48">
+      <iframe name="hidden_iframe" id="hidden_iframe" class="hidden"></iframe>
+      <form id="contact-form" action="{{ .Params.Form_action }}" method="POST" class="sec-container min-h-screen grid grid-cols-1 md:grid-cols-2 gap-x-20 pt-20 md:pt-48 " target="hidden_iframe">
         <div class="w-full h-full order-3 md:order-1 mt-8 md:mt-0">
           <img class="w-full h-full object-cover rounded-lg" src="{{ .Params.Map_image }}" alt="map">
         </div>
@@ -75,20 +76,24 @@
             {{ .Params.Title }}
           </h2>
           <div class="space-y-5 -mb-2">
-            <input type="text" name="name" placeholder="Name" class="form-input">
-            <input type="text" name="address" placeholder="Address" class="form-input">
+            <input id="name" type="text" name="{{ .Params.Form_name.name }}" placeholder="Name" class="form-input" required>
+            <input id="address" type="text" name="{{ .Params.Form_name.address }}" placeholder="Address" class="form-input" required>
             <div class="grid grid-cols-2 gap-5">
-              <input type="email" name="email" placeholder="Email" class="form-input">
-              <input type="tel" name="phone" placeholder="Phone" class="form-input">
+              <input id="email" type="email" name="{{ .Params.Form_name.email }}" placeholder="Email" class="form-input" required>
+              <input id="phone" type="number" name="{{ .Params.Form_name.phone }}"  placeholder="Phone" class="form-input" required>
             </div>
-            <input type="text" name="subject" placeholder="Subject" class="form-input">
-            <textarea name="message" class="form-input" cols="30" rows="10" placeholder="Type your message here..."></textarea>
+            <input id="subject" type="text" name="{{ .Params.Form_name.subject }}" placeholder="Subject" class="form-input" required>
+            <textarea id="message" name="{{ .Params.Form_name.message }}" class="form-input" cols="30" rows="10" placeholder="Type your message here..." required></textarea>
           </div>
         </div>
-        <div class="flex justify-end mt-5 w-full order-2 md:col-span-2">
-          <button type="submit" class="px-8 py-3 rounded-lg text-white bg-primary-blue font-medium">
-            Submit
-          </button>
+        <div class="grid grid-cols-2 gap-x-20 mt-3 w-full order-2 md:col-span-2">
+          <div></div>
+          <div class="flex flex-col items-end">
+            <p class="form-message bg-primary-green text-white font-bold w-full rounded-lg text-center"></p>
+            <button type="submit" class="px-8 py-3 h-max rounded-lg text-white bg-primary-blue font-medium">
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     {{ end }}
@@ -99,4 +104,26 @@
 
 {{end}}
 
+{{ define "scripts"}}
+<script>
+  const iframeTarget = document.querySelector('#hidden_iframe')
+  const formMessage = document.querySelector('.form-message')
+  
+  if(iframeTarget) {
+    iframeTarget.onerror = function() {
+      console.log('submit error');
+    }
+  
+    iframeTarget.onload = function () {
+      formMessage.classList.add('py-2','mb-3','pl-2')
+      formMessage.textContent = 'Submit Success'
+      
+      setTimeout(() => {
+        formMessage.classList.remove('py-2','mb-3','pl-2')
+        formMessage.textContent = ''
+      }, 5000)
+    }
+  }
+</script>
+{{ end }}
 
