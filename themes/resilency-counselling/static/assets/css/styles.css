@@ -2274,6 +2274,10 @@ h1, h2, h3, h4, h6 {
     width: 0.5rem;
   }
 
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:translate-y-0 {
     --tw-translate-y: 0px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));

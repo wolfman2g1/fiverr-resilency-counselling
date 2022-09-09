@@ -27,11 +27,11 @@
 
     {{ if(eq .Params.Section 3) }}
       <section class="text-center flex items-center justify-center bg-primary-green py-32">
-        <div class="sec-container flex flex-col lg:flex-row h-full">
-          <div class="aspect-[624/461] w-1/2">
+        <div class="sec-container flex flex-col lg:flex-row h-full w-full">
+          <div class="aspect-[624/461] w-full md:w-1/2">
             <img class="w-full h-full object-cover" src="{{ .Params.Bg_image }}" alt="{{ .Params.Title }}">
           </div>
-          <div class="w-1/2 bg-primary-yellow flex items-center justify-center py-6">
+          <div class="w-full md:w-1/2 bg-primary-yellow flex items-center justify-center py-6">
             <h2 class="text-2xl md:text-4xl lg:text-5xl">
               {{ .Params.Title }}
             </h2>
@@ -41,7 +41,7 @@
     {{ end}}
 
     {{ if(eq .Params.Section 4) }}
-      <section class="relative py-10 px-5 flex items-center justify-center aspect-[10/4] bg-cover bg-center" style="background-image: url({{ .Params.Bg_image }});">
+      <section class="relative py-10 px-5 flex items-center justify-center aspect-[10/4] bg-cover bg-center" style="background-image: url({{.Params.Bg_image}});">
         <div class="bg-primary-purple max-w-screen-lg mx-auto w-full py-12 ">
           <h2 class="text-2xl md:text-4xl lg:text-6x text-white text-center">
             {{ .Params.Title }}
